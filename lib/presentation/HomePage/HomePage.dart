@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:finance_application/Services/Cubits/fetchData_cubit/fetch_data_cubit.dart';
 import 'package:finance_application/Services/Models/finance_model.dart';
 import 'package:finance_application/core/ColorsConstants.dart';
 import 'package:finance_application/presentation/HomePage/All_Activity/see_all_activity.dart';
+import 'package:finance_application/presentation/HomePage/DismissibleButton.dart';
 import 'package:finance_application/presentation/HomePage/activity_item.dart';
 import 'package:finance_application/presentation/HomePage/plusAndMinusButton.dart';
 import 'package:finance_application/presentation/HomePage/plus_and_minus_page/plus_page.dart';
@@ -41,12 +44,12 @@ class HomePage extends StatelessWidget {
                           currancyContainer(
                               secondryColor: KseconderyPurble,
                               title: 'My Balance',
-                              price: 10.222232),
+                              price: cubit.Balance),
                           SizedBox(height: 10),
                           currancyContainer(
                               secondryColor: kSeconderyRed,
                               title: 'Todey',
-                              price: 00.00),
+                              price: cubit.TodayBalance),
                           SizedBox(height: 30),
                           Row(
                             children: [
@@ -109,12 +112,33 @@ class HomePage extends StatelessWidget {
                                 ScrollViewKeyboardDismissBehavior.onDrag,
                             physics: BouncingScrollPhysics(),
                             itemBuilder: (context, index) {
-                              return ActivityItem(
-                                isPlus: list[index].isPlus,
-                                price: list[index].price,
-                                Title: list[index].title,
-                                date: DateFormat.yMMMEd()
-                                    .format(list[index].date),
+                              return DismissibleButton(
+                                onDismissed: (direction) async {
+                                  if (direction ==
+                                      DismissDirection.startToEnd) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PlusPage(
+                                            Model: list[index],
+                                            isPlus: list[index].isPlus,
+                                          ),
+                                        ));
+                                  } else if (direction ==
+                                      DismissDirection.endToStart) {
+                                    list[index].delete();
+                                    await BlocProvider.of<FetchDataCubit>(
+                                            context)
+                                        .FetchData();
+                                  }
+                                },
+                                child: ActivityItem(
+                                  isPlus: list[index].isPlus,
+                                  price: list[index].price,
+                                  Title: list[index].title,
+                                  date: DateFormat.yMMMEd()
+                                      .format(list[index].date),
+                                ),
                               );
                             },
                           )),

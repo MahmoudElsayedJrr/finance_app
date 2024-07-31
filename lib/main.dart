@@ -1,6 +1,7 @@
 import 'package:finance_application/Services/Cubits/fetchData_cubit/fetch_data_cubit.dart';
 import 'package:finance_application/Services/Models/finance_model.dart';
 import 'package:finance_application/presentation/HomePage/HomePage.dart';
+import 'package:finance_application/presentation/onBordingScreens/onBoardingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: HomePage(),
+        home: OnBoardingScreen(),
       ),
     );
   }

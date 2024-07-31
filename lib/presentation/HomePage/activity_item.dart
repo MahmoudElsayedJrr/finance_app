@@ -15,7 +15,7 @@ class ActivityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.only(bottom: 28),
       child: Row(
         children: [
           CircleAvatar(
@@ -46,7 +46,7 @@ class ActivityItem extends StatelessWidget {
           SizedBox(width: 5),
           Spacer(),
           Text(
-            isPlus ? '+ \$ $price' : '- \$ $price',
+            '\$ $price',
             style: TextStyle(
               fontSize: 18,
             ),

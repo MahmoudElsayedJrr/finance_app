@@ -6,8 +6,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PlusPage extends StatefulWidget {
-  const PlusPage({super.key, required this.isPlus});
+  PlusPage({super.key, required this.isPlus, this.Model});
   final bool isPlus;
+  FinanceModel? Model;
   @override
   State<PlusPage> createState() => _PlusPageState();
 }
@@ -30,11 +31,28 @@ class _PlusPageState extends State<PlusPage> {
     '<',
   ];
   @override
+  void initState() {
+    if (widget.Model != null) {
+      setState(() {
+        titleController.text = widget.Model!.title;
+        _keyPadController.text = widget.Model!.price.toString();
+      });
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.isPlus ? 'Plus' : 'Minus'),
-        automaticallyImplyLeading: true,
+        leading: IconButton(
+          onPressed: () async {
+            await BlocProvider.of<FetchDataCubit>(context).FetchData();
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
       ),
       body: BlocConsumer<FetchDataCubit, FetchDataState>(
         listener: (context, state) {
@@ -139,14 +157,24 @@ class _PlusPageState extends State<PlusPage> {
                     Flexible(
                         child: customButtons(
                       ontap: () {
-                        BlocProvider.of<FetchDataCubit>(context).AddData(
-                            FinanceModel(
-                                isPlus: widget.isPlus,
-                                title: titleController.text,
-                                price: widget.isPlus
-                                    ? double.parse(_keyPadController.text)
-                                    : double.parse(_keyPadController.text) * -1,
-                                date: DateTime.now()));
+                        if (widget.Model != null) {
+                          widget.Model!.title = titleController.text;
+                          widget.Model!.price =
+                              double.parse(_keyPadController.text);
+                          widget.Model!.save();
+                          BlocProvider.of<FetchDataCubit>(context).FetchData();
+                          Navigator.pop(context);
+                        } else {
+                          BlocProvider.of<FetchDataCubit>(context).AddData(
+                              FinanceModel(
+                                  isPlus: widget.isPlus,
+                                  title: titleController.text,
+                                  price: widget.isPlus
+                                      ? double.parse(_keyPadController.text)
+                                      : double.parse(_keyPadController.text) *
+                                          -1,
+                                  date: DateTime.now()));
+                        }
                       },
                       child: state is AddDataLoading
                           ? Center(
@@ -155,7 +183,7 @@ class _PlusPageState extends State<PlusPage> {
                             ))
                           : Text(
                               textAlign: TextAlign.center,
-                              'Done',
+                              widget.Model != null ? 'Edit' : 'Add',
                               style:
                                   TextStyle(fontSize: 20, color: kPrimaryBlue),
                             ),
@@ -164,7 +192,11 @@ class _PlusPageState extends State<PlusPage> {
                     SizedBox(width: 10),
                     Flexible(
                         child: customButtons(
-                      ontap: () {},
+                      ontap: () async {
+                        Navigator.pop(context);
+                        await BlocProvider.of<FetchDataCubit>(context)
+                            .FetchData();
+                      },
                       child: Text(
                         textAlign: TextAlign.center,
                         'Cancel',

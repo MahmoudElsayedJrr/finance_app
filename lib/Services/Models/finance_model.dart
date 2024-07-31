@@ -2,15 +2,15 @@ import 'package:hive/hive.dart';
 part 'finance_model.g.dart';
 
 @HiveType(typeId: 1)
-class FinanceModel {
+class FinanceModel extends HiveObject {
   @HiveField(0)
-  final String title;
+  String title;
   @HiveField(1)
-  final double price;
+  double price;
   @HiveField(2)
-  final DateTime date;
+  DateTime date;
   @HiveField(3)
-  final bool isPlus;
+  bool isPlus;
 
   FinanceModel({
     required this.title,
