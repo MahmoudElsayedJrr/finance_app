@@ -12,25 +12,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'currancyContainer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    doSomeAsyncStuff();
+  }
+
+  void doSomeAsyncStuff() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('name') ?? " ";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<FetchDataCubit>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome, Mahmoud'),
+        title: Text('Welcome, ${username}'),
         actions: [
           IconButton(
-            icon: Icon(Icons.settings_outlined),
+            icon: Icon(Icons.dark_mode_outlined),
             onPressed: () {},
           ),
         ],
       ),
+      drawer: Drawer(),
       body: BlocBuilder<FetchDataCubit, FetchDataState>(
         builder: (context, state) {
           List<FinanceModel> list = cubit.financeData.reversed.toList();

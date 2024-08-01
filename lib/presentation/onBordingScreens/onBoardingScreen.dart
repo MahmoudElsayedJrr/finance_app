@@ -1,6 +1,7 @@
 import 'package:finance_application/core/ColorsConstants.dart';
 import 'package:finance_application/presentation/HomePage/HomePage.dart';
 import 'package:finance_application/presentation/onBordingScreens/PageItems.dart';
+import 'package:finance_application/presentation/onBordingScreens/YouName.dart';
 import 'package:finance_application/presentation/onBordingScreens/dotIndicator.dart';
 import 'package:flutter/material.dart';
 
@@ -37,10 +38,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               alignment: Alignment.topRight,
               child: TextButton(
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                        (route) => false);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => YourNameScreen()),
+                    );
                   },
                   child: Text('Skip',
                       style: TextStyle(
@@ -66,10 +67,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             InkWell(
               onTap: () {
                 if (currentIndex == items.length - 1) {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                      (route) => false);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => YourNameScreen()),
+                  );
                 }
               },
               child: Container(

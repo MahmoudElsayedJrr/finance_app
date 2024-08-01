@@ -1,5 +1,6 @@
 import 'package:finance_application/core/ColorsConstants.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class currancyContainer extends StatelessWidget {
   const currancyContainer({
@@ -37,7 +38,7 @@ class currancyContainer extends StatelessWidget {
                     ),
                     SizedBox(height: 3),
                     Text(
-                      '${price.toStringAsFixed(2)}',
+                      '${NumberFormat.compactCurrency(decimalDigits: 2, symbol: 'EGP ').format(price).toString()}',
                       style: TextStyle(fontSize: 35, color: KWhiteColor),
                     ),
                   ],

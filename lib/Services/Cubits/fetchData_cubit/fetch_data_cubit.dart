@@ -13,7 +13,7 @@ class FetchDataCubit extends Cubit<FetchDataState> {
   List<FinanceModel> TodayfinanceData = [];
   double Balance = 0.0;
   double TodayBalance = 0.0;
-  FetchData() {
+  FetchData({DateTime? date}) {
     financeData.clear();
     TodayfinanceData.clear();
     emit(FetchDataLoading());
@@ -23,7 +23,7 @@ class FetchDataCubit extends Cubit<FetchDataState> {
           .values
           .where((element) =>
               DateFormat.yMMMEd().format(element.date) ==
-              DateFormat.yMMMEd().format(DateTime.now()))
+              DateFormat.yMMMEd().format(date ?? DateTime.now()))
           .toList();
       Balance = 0.0;
       TodayBalance = 0.0;
@@ -49,4 +49,19 @@ class FetchDataCubit extends Cubit<FetchDataState> {
       emit(AddDataFalirue(errMsg: e.toString()));
     }
   }
+
+/*   List<FinanceModel> financesListByDate = [];
+  void FetchDataByDate(DateTime date) {
+    financesListByDate.clear();
+    emit(FetchDataLoading());
+    try {
+      financesListByDate = Hive.box<FinanceModel>('FinanceBox')
+          .values
+          .where((element) => element.date == date)
+          .toList();
+      emit(FetchDataSuccess());
+    } catch (e) {
+      emit(FetchDataFalirue(errMsg: e.toString()));
+    }
+  }*/
 }
