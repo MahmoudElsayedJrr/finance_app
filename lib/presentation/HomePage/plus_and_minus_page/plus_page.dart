@@ -83,6 +83,7 @@ class _PlusPageState extends State<PlusPage> {
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(left: 16),
                         labelText: 'Title...',
+                        labelStyle: TextStyle(color: KBlackColor),
                         border: InputBorder.none),
                   ),
                 ),

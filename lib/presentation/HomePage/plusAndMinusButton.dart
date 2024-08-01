@@ -7,10 +7,12 @@ class plusAndMinusButton extends StatelessWidget {
     required this.icon,
     required this.color,
     required this.ontap,
+    required this.TextandIconColor,
   });
   final String name;
   final IconData icon;
   final Color color;
+  final Color TextandIconColor;
   final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
@@ -24,9 +26,13 @@ class plusAndMinusButton extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(icon, size: 20),
+            Icon(
+              icon,
+              size: 20,
+              color: TextandIconColor,
+            ),
             SizedBox(width: 2),
-            Text(name, style: TextStyle(fontSize: 18))
+            Text(name, style: TextStyle(fontSize: 18, color: TextandIconColor))
           ],
         ),
       ),
