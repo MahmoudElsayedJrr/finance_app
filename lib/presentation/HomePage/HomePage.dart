@@ -50,16 +50,13 @@ class _HomePageState extends State<HomePage> {
         return Scaffold(
           appBar: AppBar(
             title: Text('Welcome, ${username}'),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.dark_mode_outlined),
-                onPressed: () {
-                  box.put('darkMode', !darkmood);
-                },
-              ),
-            ],
           ),
-          drawer: Drawer(),
+          drawer: newDrawer(
+            darkmood: darkmood,
+            onChanged: (p0) {
+              box.put('darkMode', !darkmood);
+            },
+          ),
           body: BlocBuilder<FetchDataCubit, FetchDataState>(
             builder: (context, state) {
               List<FinanceModel> list = cubit.financeData.reversed.toList();
@@ -184,6 +181,70 @@ class _HomePageState extends State<HomePage> {
           ),
         );
       },
+    );
+  }
+}
+
+class newDrawer extends StatelessWidget {
+  const newDrawer({
+    super.key,
+    required this.darkmood,
+    required this.onChanged,
+  });
+  final darkmood;
+  final void Function(bool)? onChanged;
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          DrawerHeader(
+              child: Column(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 30,
+                child: Text('${username![0]}'),
+              ),
+              SizedBox(height: 10),
+              Text(
+                '${username}',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              ),
+            ],
+          )),
+          Expanded(
+            child: ListView(
+              physics: BouncingScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                ListTile(
+                  title: Text('Dark Mode'),
+                  trailing: Switch(
+                    value: darkmood,
+                    onChanged: onChanged,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SeeAllActivity(),
+                        ));
+                  },
+                  child: ListTile(
+                      title: Text('All Activity'),
+                      trailing: Icon(
+                        Icons.list_rounded,
+                        size: 30,
+                      )),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
