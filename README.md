@@ -1,6 +1,5 @@
-# **Project Title**
+# **Finance App**
 
-Finance App
 
 ## **Introduction**
 
