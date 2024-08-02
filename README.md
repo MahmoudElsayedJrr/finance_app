@@ -5,6 +5,16 @@
 
   This application is used to organize the money transactions that have been spent or saved. These transactions are recorded in the application and the money that has been spent on the day and the remaining money are shown.
 
+## **Usage**
+
+  I programmed this application to learn how to store data on a mobile phone using the `** Hive package **`, use dark mode, and deal with shared_preferences to store data on mobile cache 
+
+  - [ Hive Docs ](https://docs.hivedb.dev/).
+    
+  - [ Hive Pachage ](https://pub.dev/packages/hive_flutter).
+    
+  - [ Shared_preferences ](https://pub.dev/packages/shared_preferences).
+
 ## **Getting Started**
 
   For using application on android Phone :
