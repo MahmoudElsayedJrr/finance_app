@@ -1,12 +1,17 @@
-# finance_application
+# **Project Title**
 
-A new Flutter project.
+Finance App
 
-## Getting Started
+#& **Introduction**
 
-This project is a starting point for a Flutter application.
+Finance App: This application is used to organize the money transactions that have been spent or saved. These transactions are recorded in the application and the money that has been spent on the day and the remaining money are shown.
 
-A few resources to get you started if this is your first Flutter project:
+## **Getting Started**
+  For using application on android Phone
+    1. **`git clone https://github.com/MahmoudElsayedJrr/finance_app.git`** 
+    2. **  Go Path : finance_app/build/app/outputs/flutter-apk **
+    3. ** transfer this apk to your android phone and install it  **
+    
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
