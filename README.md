@@ -8,9 +8,9 @@ Finance App: This application is used to organize the money transactions that ha
 
 ## **Getting Started**
   For using application on android Phone
-    1. **`git clone https://github.com/MahmoudElsayedJrr/finance_app.git`** 
-    2. **  Go Path : finance_app/build/app/outputs/flutter-apk **
-    3. ** transfer this apk to your android phone and install it  **
+    + **`git clone https://github.com/MahmoudElsayedJrr/finance_app.git`** 
+    + **  Go Path : finance_app/build/app/outputs/flutter-apk **
+    + ** transfer this apk to your android phone and install it  **
     
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
