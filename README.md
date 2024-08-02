@@ -11,7 +11,7 @@
 
   - [ Hive Docs ](https://docs.hivedb.dev/).
     
-  - [ Hive Pachage ](https://pub.dev/packages/hive_flutter).
+  - [ Hive Package ](https://pub.dev/packages/hive_flutter).
     
   - [ Shared_preferences ](https://pub.dev/packages/shared_preferences).
 
