@@ -7,7 +7,7 @@
 
 ## **Usage**
 
-  I programmed this application to learn how to store data on a mobile phone using the `** Hive package **`, use dark mode, and deal with shared_preferences to store data on mobile cache 
+  I programmed this application to learn how to store data on a mobile phone using the __Hive package__, use dark mode, and deal with __shared_preferences__ to store data on mobile cache 
 
   - [ Hive Docs ](https://docs.hivedb.dev/).
     
