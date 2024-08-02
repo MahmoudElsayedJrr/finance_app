@@ -7,7 +7,7 @@
 
 ## **Getting Started**
 
-  For using application on android Phone
+  For using application on android Phone :
 
     1. git clone `https://github.com/MahmoudElsayedJrr/finance_app.git`
     
@@ -16,4 +16,4 @@
     3. transfer this apk to your android phone and install it
     
 
-
+`dsadfasdsadasdasdsadsadasd`
