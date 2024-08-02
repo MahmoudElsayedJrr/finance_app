@@ -9,11 +9,11 @@
 
   For using application on android Phone
 
-    1.  git clone https://github.com/MahmoudElsayedJrr/finance_app.git
+    1. git clone https://github.com/MahmoudElsayedJrr/finance_app.git
     
-    1.  Go Path : finance_app/build/app/outputs/flutter-apk
+    2. Go Path : finance_app/build/app/outputs/flutter-apk
     
-    1.  transfer this apk to your android phone and install it
+    3. transfer this apk to your android phone and install it
     
 
 
