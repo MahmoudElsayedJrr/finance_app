@@ -80,6 +80,8 @@ class _PlusPageState extends State<PlusPage> {
                   child: TextField(
                     controller: titleController,
                     maxLines: 1,
+                    cursorColor: KBlackColor,
+                    style: TextStyle(color: KBlackColor),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(left: 16),
                         labelText: 'Title...',

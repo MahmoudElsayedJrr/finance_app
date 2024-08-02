@@ -2,18 +2,19 @@ import 'package:finance_application/Services/Cubits/fetchData_cubit/fetch_data_c
 import 'package:finance_application/Services/Models/finance_model.dart';
 import 'package:finance_application/core/ColorsConstants.dart';
 import 'package:finance_application/presentation/HomePage/HomePage.dart';
-import 'package:finance_application/presentation/onBordingScreens/YouName.dart';
 import 'package:finance_application/presentation/onBordingScreens/onBoardingScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  isOnBorded = prefs.getBool('onbordedone');
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  username = await prefs.getString('name');
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Hive.initFlutter();
   Hive.registerAdapter(FinanceModelAdapter());
   await Hive.openBox<FinanceModel>("FinanceBox");
@@ -33,10 +34,10 @@ class MyApp extends StatelessWidget {
           var darkmood = box.get('darkMode', defaultValue: false);
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Finance',
             themeMode: darkmood ? ThemeMode.dark : ThemeMode.light,
             darkTheme: ThemeData.dark(useMaterial3: true),
-            home: isOnBorded == true ? HomePage() : OnBoardingScreen(),
+            home: username != null ? HomePage() : OnBoardingScreen(),
           );
         },
       ),

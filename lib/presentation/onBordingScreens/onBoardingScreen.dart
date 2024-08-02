@@ -1,5 +1,4 @@
 import 'package:finance_application/core/ColorsConstants.dart';
-import 'package:finance_application/presentation/HomePage/HomePage.dart';
 import 'package:finance_application/presentation/onBordingScreens/PageItems.dart';
 import 'package:finance_application/presentation/onBordingScreens/YouName.dart';
 import 'package:finance_application/presentation/onBordingScreens/dotIndicator.dart';
