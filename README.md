@@ -15,6 +15,9 @@
     
   - [ Shared_preferences ](https://pub.dev/packages/shared_preferences).
 
+  > [!TIP]
+  > Show hive docs first before using package on application.
+
 ## **Getting Started**
 
   For using application on android Phone :
@@ -25,6 +28,5 @@
       
     3. transfer this apk to your android phone and install it
   
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+
 
