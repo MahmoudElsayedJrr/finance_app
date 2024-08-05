@@ -26,7 +26,10 @@
       
   2. Run CMD Write `code .` 
       
-  3. Go to `finance_app/lib/main.dart`
+  3. Go to `finance_app/lib/main.dart` and write `flutter pub get` on terminal
+
+> [!NOTE]
+> If u want create apk write `flutter build apk` on terminal  
     
  if u want download app directly [Click Here](https://drive.google.com/file/d/152O3xfuPHo3MMVRf3MAO3phN19Vm6yUy/view?usp=drive_link) 
 
