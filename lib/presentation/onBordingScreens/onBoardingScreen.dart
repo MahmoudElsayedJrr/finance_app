@@ -2,7 +2,9 @@ import 'package:finance_application/core/ColorsConstants.dart';
 import 'package:finance_application/presentation/onBordingScreens/PageItems.dart';
 import 'package:finance_application/presentation/onBordingScreens/YouName.dart';
 import 'package:finance_application/presentation/onBordingScreens/dotIndicator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -16,20 +18,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController _pageController = PageController();
   List<PageItem> items = [
     PageItem(
-        title: 'Welcome', subtitle: lorem, img: 'assets/images/finance1.png'),
+        title: 'Welcome',
+        subtitle:
+            'Welcome to Finance - Your Personal Finance Companion, Simplify your financial life with powerful tools and insights, Get started on your journey to financial freedom today!',
+        img: 'assets/images/finance1.png'),
     PageItem(
-        title: 'Finance App',
-        subtitle: lorem,
+        title: 'Track Expenses',
+        subtitle:
+            'Easily track all your expenses in one place, Stay on top of your spending with real-time updates, Gain insights into your spending habits and make informed decisions.',
         img: 'assets/images/finance2.png'),
     PageItem(
-        title: 'Finally', subtitle: lorem, img: 'assets/images/finance3.png'),
+        title: 'Get Started',
+        subtitle:
+            'Ready to take control of your finances?, Sign up now and start your journey to financial wellness, Join thousands of satisfied users and transform your financial future.',
+        img: 'assets/images/finance3.png'),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(24),
         child: Column(
           children: [
             SizedBox(height: 10),
@@ -48,7 +57,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             Spacer(),
             SizedBox(
-              height: 300,
+              height: 350,
               child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {

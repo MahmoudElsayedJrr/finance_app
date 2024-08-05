@@ -38,7 +38,7 @@ class currancyContainer extends StatelessWidget {
                     ),
                     SizedBox(height: 3),
                     Text(
-                      '${NumberFormat.compactCurrency(decimalDigits: 2, symbol: 'EGP ').format(price).toString()}',
+                      '${NumberFormat.compactCurrency(decimalDigits: 2, symbol: ' EGP ').format(price).toString()}',
                       style: TextStyle(fontSize: 35, color: KWhiteColor),
                     ),
                   ],

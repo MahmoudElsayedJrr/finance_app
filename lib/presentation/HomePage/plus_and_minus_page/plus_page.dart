@@ -104,7 +104,7 @@ class _PlusPageState extends State<PlusPage> {
                             : '+ ${_keyPadController.text}'
                         : _keyPadController.text.isEmpty
                             ? '- 0.0'
-                            : '- ${_keyPadController.text}',
+                            : ' ${_keyPadController.text}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
@@ -162,8 +162,11 @@ class _PlusPageState extends State<PlusPage> {
                       ontap: () {
                         if (widget.Model != null) {
                           widget.Model!.title = titleController.text;
-                          widget.Model!.price =
-                              double.parse(_keyPadController.text);
+                          widget.Model!.price = widget.Model!.isPlus
+                              ? double.parse(_keyPadController.text)
+                              : double.parse(_keyPadController.text) > 0
+                                  ? double.parse(_keyPadController.text) * -1
+                                  : double.parse(_keyPadController.text);
                           widget.Model!.save();
                           BlocProvider.of<FetchDataCubit>(context).FetchData();
                           Navigator.pop(context);
@@ -174,8 +177,12 @@ class _PlusPageState extends State<PlusPage> {
                                   title: titleController.text,
                                   price: widget.isPlus
                                       ? double.parse(_keyPadController.text)
-                                      : double.parse(_keyPadController.text) *
-                                          -1,
+                                      : double.parse(_keyPadController.text) > 0
+                                          ? double.parse(
+                                                  _keyPadController.text) *
+                                              -1
+                                          : double.parse(
+                                              _keyPadController.text),
                                   date: DateTime.now()));
                         }
                       },

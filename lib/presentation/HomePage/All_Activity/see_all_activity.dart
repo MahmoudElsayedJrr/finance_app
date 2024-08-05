@@ -1,6 +1,8 @@
 import 'package:finance_application/Services/Cubits/fetchData_cubit/fetch_data_cubit.dart';
 import 'package:finance_application/Services/Models/finance_model.dart';
+import 'package:finance_application/presentation/HomePage/DismissibleButton.dart';
 import 'package:finance_application/presentation/HomePage/activity_item.dart';
+import 'package:finance_application/presentation/HomePage/plus_and_minus_page/plus_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -65,16 +67,34 @@ class _SeeAllActivityState extends State<SeeAllActivity> {
                           Expanded(
                               child: ListView.builder(
                             itemCount: list.length,
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            padding: EdgeInsets.symmetric(horizontal: 8),
                             itemBuilder: (context, index) {
-                              return ActivityItem(
-                                isPlus: list[index].isPlus,
-                                price: list[index].price,
-                                Title: list[index].title,
-                                date: DateFormat.yMMMEd()
-                                    .format(list[index].date),
+                              return DismissibleButton(
+                                onDismissed: (direction) async {
+                                  if (direction ==
+                                      DismissDirection.startToEnd) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PlusPage(
+                                            Model: list[index],
+                                            isPlus: list[index].isPlus,
+                                          ),
+                                        ));
+                                  } else if (direction ==
+                                      DismissDirection.endToStart) {
+                                    list[index].delete();
+                                    await BlocProvider.of<FetchDataCubit>(
+                                            context)
+                                        .FetchData();
+                                  }
+                                },
+                                child: ActivityItem(
+                                  isPlus: list[index].isPlus,
+                                  price: list[index].price,
+                                  Title: list[index].title,
+                                  date: DateFormat.yMMMEd()
+                                      .format(list[index].date),
+                                ),
                               );
                             },
                           ))

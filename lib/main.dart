@@ -33,12 +33,12 @@ class MyApp extends StatelessWidget {
         builder: (context, box, child) {
           var darkmood = box.get('darkMode', defaultValue: false);
           return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Finance',
-            themeMode: darkmood ? ThemeMode.dark : ThemeMode.light,
-            darkTheme: ThemeData.dark(useMaterial3: true),
-            home: username != null ? HomePage() : OnBoardingScreen(),
-          );
+              debugShowCheckedModeBanner: false,
+              title: 'Finance',
+              themeMode: darkmood ? ThemeMode.dark : ThemeMode.light,
+              darkTheme: ThemeData.dark(useMaterial3: true),
+              home: /* username != null ? HomePage() : OnBoardingScreen() */
+                  OnBoardingScreen());
         },
       ),
     );

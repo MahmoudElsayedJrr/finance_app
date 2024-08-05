@@ -25,7 +25,7 @@ class PageItem extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(subtitle,
-            maxLines: 2,
+            maxLines: 3,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(

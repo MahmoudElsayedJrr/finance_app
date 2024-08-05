@@ -57,7 +57,8 @@ class _HomePageState extends State<HomePage> {
           ),
           body: BlocBuilder<FetchDataCubit, FetchDataState>(
             builder: (context, state) {
-              List<FinanceModel> list = cubit.financeData.reversed.toList();
+              List<FinanceModel> list =
+                  cubit.TodayfinanceData.reversed.toList();
               return state is FetchDataLoading
                   ? Center(
                       child: CircularProgressIndicator(color: kPrimaryGreen))
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(height: 10),
                               currancyContainer(
                                   secondryColor: kSeconderyRed,
-                                  title: 'Todey',
+                                  title: 'Today',
                                   price: cubit.TodayBalance),
                               SizedBox(height: 30),
                               Row(
