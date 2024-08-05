@@ -20,13 +20,14 @@
 
 ## **Getting Started**
 
-  For using application on android Phone :
+  For using application on VScode :
   
     1. git clone https://github.com/MahmoudElsayedJrr/finance_app.git
       
-    2. Go Path : finance_app/build/app/outputs/flutter-apk
+    2. Run CMD Write code . 
       
     3. transfer this apk to your android phone and install it
-  
+    
+ if u want download app directly [Click Here](https://drive.google.com/file/d/152O3xfuPHo3MMVRf3MAO3phN19Vm6yUy/view?usp=drive_link) 
 
 
