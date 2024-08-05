@@ -22,11 +22,11 @@
 
   For using application on VScode :
   
-    1. git clone https://github.com/MahmoudElsayedJrr/finance_app.git
+  1. git clone `https://github.com/MahmoudElsayedJrr/finance_app.git`
       
-    2. Run CMD Write code . 
+  2. Run CMD Write `code .` 
       
-    3. transfer this apk to your android phone and install it
+  3. Go to `finance_app/lib/main.dart`
     
  if u want download app directly [Click Here](https://drive.google.com/file/d/152O3xfuPHo3MMVRf3MAO3phN19Vm6yUy/view?usp=drive_link) 
 
