@@ -1,16 +1,32 @@
-# finance_application
+# **Finance App**
 
-A new Flutter project.
 
-## Getting Started
+## **Introduction**
 
-This project is a starting point for a Flutter application.
+  This application is used to organize the money transactions that have been spent or saved. These transactions are recorded in the application and the money that has been spent on the day and the remaining money are shown.
 
-A few resources to get you started if this is your first Flutter project:
+## **Usage**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  I programmed this application to learn how to store data on a mobile phone using the __Hive package__, use dark mode, and deal with __shared_preferences__ to store data on mobile cache 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  - [ Hive Docs ](https://docs.hivedb.dev/).
+    
+  - [ Hive Package ](https://pub.dev/packages/hive_flutter).
+    
+  - [ Shared_preferences ](https://pub.dev/packages/shared_preferences).
+
+  > [!TIP]
+  > Show hive docs first before using package on application.
+
+## **Getting Started**
+
+  For using application on android Phone :
+  
+    1. git clone https://github.com/MahmoudElsayedJrr/finance_app.git
+      
+    2. Go Path : finance_app/build/app/outputs/flutter-apk
+      
+    3. transfer this apk to your android phone and install it
+  
+
+
